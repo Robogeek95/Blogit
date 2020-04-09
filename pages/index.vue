@@ -1,12 +1,11 @@
 <template>
   <div class="container">
     <main>
-      <h2>Latest Toughts</h2>
+      <h2>My First Ghost Blog</h2>
       <ul>
         <li v-for="(post, index) in posts" :key="index">
           <img :src="post.feature_image" />
           <div class="content">
-            <span>{{ post.authors[0].name }}</span>
             <nuxt-link :to="{ path: post.slug }"> {{ post.title }}</nuxt-link>
             <p>{{post.excerpt }}</p>
           </div>
@@ -17,12 +16,14 @@
 </template>
 
 <script>
-import { posts } from "~/api/posts";
+import { getPosts } from "~/api/post.js";
 
 export default {
-  async data() {
-    const posts = await posts();
-    return { posts: posts };
+  async asyncData() {
+    const posts = await getPosts();
+    return {
+      posts: posts
+    };
   }
 };
 </script>
