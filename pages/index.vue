@@ -1,41 +1,30 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        myblog
-      </h1>
-      <h2 class="subtitle">
-        My posh Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <main>
+      <h2>Latest Toughts</h2>
+      <ul>
+        <li v-for="(post, index) in posts" :key="index">
+          <img :src="post.feature_image" />
+          <div class="content">
+            <span>{{ post.authors[0].name }}</span>
+            <nuxt-link :to="{ path: post.slug }"> {{ post.title }}</nuxt-link>
+            <p>{{post.excerpt }}</p>
+          </div>
+        </li>
+      </ul>
+    </main>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { posts } from "~/api/posts";
 
 export default {
-  components: {
-    Logo
+  async data() {
+    const posts = await posts();
+    return { posts: posts };
   }
-}
+};
 </script>
 
 <style>
@@ -49,8 +38,8 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
