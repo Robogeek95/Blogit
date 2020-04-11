@@ -5,7 +5,7 @@
         <div class="navbar">
           <nuxt-link to="/" class="logo d-flex">
             <b-avatar variant="info" src="https://placekitten.com/300/300" class="mr-2"></b-avatar>
-            <h3>SoftKeys</h3>
+            <h3>BlogIT</h3>
           </nuxt-link>
 
           <nav>

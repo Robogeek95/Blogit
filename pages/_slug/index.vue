@@ -1,8 +1,9 @@
 <template>
   <div class="container">
-    <main>
+    <main class="mt-4">
       <h1>{{post.title}}</h1>
-      <div class="content">
+      <img :src="post.feature_image" class="img-fluid" />
+      <div class="content mx-auto">
         <div v-html="post.html">{{post.html}}</div>
       </div>
     </main>
@@ -13,7 +14,7 @@
 import { getPost } from "~/api/post.js";
 
 export default {
-  async asyncData({params}) {
+  async asyncData({ params }) {
     const post = await getPost(params.slug);
     return {
       post: post
@@ -24,7 +25,7 @@ export default {
 
 <style lang="scss">
 h1 {
-  color: white;
+  // color: white;
   margin-bottom: 1em;
 }
 
@@ -32,6 +33,7 @@ h1 {
   background: white;
   border-radius: 1em;
   padding: 1em;
+  width: 70%;
 }
 
 main {
