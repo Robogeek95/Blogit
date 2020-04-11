@@ -1,16 +1,16 @@
 <template>
   <div class="container">
     <main>
-      <h2>My First Ghost Blog</h2>
-      <ul>
-        <li v-for="(post, index) in posts" :key="index">
-          <img :src="post.feature_image" />
+      <h2 class="my-4">My First Ghost Blog</h2>
+      <div class="row">
+        <div class="col col-6" v-for="(post, index) in posts" :key="index">
+          <img :src="post.feature_image" class="img-fluid" />
           <div class="content">
-            <nuxt-link :to="{ path: post.slug }"> {{ post.title }}</nuxt-link>
+            <nuxt-link :to="{ path: post.slug }">{{ post.title }}</nuxt-link>
             <p>{{post.excerpt }}</p>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </main>
   </div>
 </template>
@@ -28,16 +28,11 @@ export default {
 };
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+<style lang="scss">
+ul {
+  list-style-type: none;
+  padding: 0;
 }
-
 .title {
   font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

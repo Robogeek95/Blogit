@@ -1,13 +1,40 @@
 <template>
   <div>
+    <header>
+      <div class="container" id="menu">
+        <div class="navbar">
+          <nuxt-link to="/" class="logo d-flex">
+            <b-avatar variant="info" src="https://placekitten.com/300/300" class="mr-2"></b-avatar>
+            <h3>SoftKeys</h3>
+          </nuxt-link>
+
+          <nav>
+            <ul id="menu" class="mb-0">
+              <li>
+                <nuxt-link to="/me">Posts</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/me">Contact</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/me">About</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/me">Featured</nuxt-link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
     <nuxt />
   </div>
 </template>
 
-<style>
+<style lang='scss'>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -24,32 +51,26 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
+header {
+  background: purple;
+  padding: 1em 0;
+  text-align: center;
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
+  h4 {
+    color: greenyellow;
+  }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+  a {
+    color: salmon;
+  }
+  #menu ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+  }
+  #menu li a {
+    font-weight: normal;
+    padding: 0.5em;
+  }
 }
 </style>

@@ -1,5 +1,6 @@
 import GhostContentAPI from '@tryghost/content-api'
 // import { enviroment } from '../enviroment'
+// import GhostContentAPI from '~/content-api';
 
 const api = new GhostContentAPI({
   url: 'http://localhost:2368',
@@ -15,6 +16,13 @@ export async function getPosts() {
     })
     .catch((err) => {
       console.log(err);
-    }
-    )
+    })
+};
+
+export async function getPost(slug) {
+  return await api.posts
+    .read({
+      slug: slug
+    })
+    .catch(err => console.log(err))
 }
